@@ -2,7 +2,7 @@
 
 The application is being built as part of the Virtual Data Collaboratory (VDC) Project. More information about the project can be found here:
 
-* datacollaboratory.org
+* https://datacollaboratory.org
 
 More information about Hyrax can be found here:
 
