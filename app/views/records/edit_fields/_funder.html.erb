@@ -1,0 +1,23 @@
+<% # app/views/records/edit_fields/_funder.html.erb %>
+
+<%= f.input :funder,
+            label: "Funder",
+            required: f.object.required?(key),
+            input_html: {
+              value: VdcFundingSourcesService.reveal_funder_value(f.object[:funder]),
+              class: 'form-control',
+              multiple: false,
+              data: { 'autocomplete-url': '/authorities/search/local/vdc_funding_sources', 'autocomplete': :funder }
+            }
+%>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    // this code causes the dropdown to appear with all items when a user selects the field
+    // that way they dont have to type to see the initial list
+    
+    $("#vdc_resource_funder, #collection_funder").focus(function() {
+      $("#vdc_resource_funder, #collection_funder").autocomplete("search", "`")
+    })
+  })
+</script>

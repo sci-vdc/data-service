@@ -1,0 +1,34 @@
+<div class="panel panel-default panel-user">
+  <div class="panel-heading">
+    <%= image_tag user.avatar.url(:thumb), width: 100 if user.avatar.present? %>
+    <h3>
+      <%= @user.display_name %><br />
+    </h3>
+  </div>
+
+  <div class="list-group">
+    <%= render "hyrax/users/vitals", user: user %>
+
+    <div class="list-group-item">
+      <%= render 'hyrax/users/user_info', user: user %>
+    </div>
+  </div>
+
+
+  <div class="panel-footer clearfix">
+    <%# TODO: Find out if we need to uncomment and fix code below: %>
+    <%# unless current_page? hyrax.dashboard_profile_path(user) %>
+      <%# link_to t("hyrax.view_profile"), hyrax.dashboard_profile_path(user), class: "btn btn-default" %>
+    <%# end %>
+
+    <%# TODO: Remove or Switch allow_edit to true once we figure out a process
+              for allowing users to edit their profile %>
+    <% allow_edit = false %>
+    <% if (can? :edit, current_user) && allow_edit %>
+      <%= link_to hyrax.edit_dashboard_profile_path(user), class: "btn btn-default pull-right" do %>
+        <i class="glyphicon glyphicon-edit"></i> <%= t("hyrax.edit_profile") %>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

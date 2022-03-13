@@ -1,0 +1,29 @@
+<% provide :page_title, t("hyrax.admin.sidebar.works") %>
+
+<% provide :head do %>
+  <%= rss_feed_link_tag route_set: hyrax %>
+  <%= atom_feed_link_tag route_set: hyrax %>
+<% end %>
+
+<%= javascript_tag do %>
+  <%= render partial: 'scripts', formats: [:js] %>
+<% end %>
+
+<% provide :page_header do %>
+  <h1><span class="fa fa-file"></span> <%= t("hyrax.admin.sidebar.works") %></h1>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default<%= ' tabs' if can?(:read, :admin_dashboard) %>">
+      <%= render 'tabs' if can?(:read, :admin_dashboard) %>
+      <div class="panel-body">
+        <%= render 'search_header' %>
+        <h2 class="sr-only">Works listing</h2>
+        <%= render 'document_list' %>
+
+        <%= render 'results_pagination' %>
+      </div>
+    </div>
+  </div>
+</div>

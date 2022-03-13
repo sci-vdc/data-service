@@ -1,0 +1,11 @@
+<% provide :page_title, curation_concern_page_title(curation_concern) %>
+<% provide :page_header do %>
+  <div class="inline-text">
+    <h1><%= t("hyrax.works.create.header", type: curation_concern.human_readable_type)%> </h1>
+    </br>
+    <p class="help-links"><%= t("hyrax.works.create.helper.question")%>
+      <%=link_to t("hyrax.works.create.helper.guide"), ENV['GUIDE_LINK'] %></p>
+  </div>
+<% end %>
+
+<%= render 'form' %>

@@ -1,0 +1,25 @@
+default: &default
+  encoding: utf8
+  adapter:  <%= ENV['DB_ADAPTER'] %>
+  host:     <%= ENV['MYSQL_HOST'] %>
+  username: root
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+  database: <%= ENV['MYSQL_DATABASE'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: <%= ENV['TEST_DB'] %>
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  pool:     50
+  timeout: 5000
+

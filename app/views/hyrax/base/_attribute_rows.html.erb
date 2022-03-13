@@ -1,0 +1,29 @@
+<%= presenter.attribute_to_html(:title) %>
+<%= presenter.attribute_to_html(:vdc_creator, render_as: :vdc_creator) %>
+<%# presenter.attribute_to_html(:vdc_type, render_as: :faceted) %>
+<%= presenter.attribute_to_html(:identifier_doi) %>
+<%# presenter.attribute_to_html(:authoritative_name, render_as: :faceted) %>
+<%# presenter.attribute_to_html(:authoritative_name_uri, render_as: :faceted) %>
+<%= presenter.attribute_to_html(:genre) %>
+<%= presenter.attribute_to_html(:creation_date) %>
+<%= presenter.attribute_to_html(:abstract) %>
+<%= presenter.attribute_to_html(:vdc_license, render_as: :vdc_license) %>
+<%= presenter.attribute_to_html(:funder, render_as: :faceted, search_field: 'funder') %>
+<%= presenter.attribute_to_html(:research_problem) %>
+<%= presenter.attribute_to_html(:note) %>
+<%= presenter.attribute_to_html(:extent) %>
+<%= presenter.attribute_to_html(:format) %>
+<%= presenter.attribute_to_html(:discipline) %>
+<%= presenter.attribute_to_html(:coverage_spatial) %>
+<%= presenter.attribute_to_html(:coverage_temporal) %>
+<%= presenter.attribute_to_html(:relation_type) %>
+<%= presenter.attribute_to_html(:relation_uri) %>
+<%= presenter.attribute_to_html(:readme_abstract) %>
+<%= presenter.attribute_to_html(:globus_url, render_as: :external_link) %>
+<%= presenter.attribute_to_html(:usage_count) %>
+<%= presenter.attribute_to_html(:usage_purposes) %>
+<%# partial to render for usage_purposes %>
+<%= link_to t('hyrax.download_usage'), vdc_usages_path(work_id: @presenter.id) %>
+
+<%# download usage modal / form here for Hyrax::Vdc::ResourcesController#show %>
+<%= render 'hyrax/download_usage'%>
